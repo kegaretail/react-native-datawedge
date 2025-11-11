@@ -9,6 +9,7 @@
     "license": "ISC",
     "main": "./src/index.js",
     "files": [
+        "android",
         "src",
         "README.md",
         "BARCODE_TYPES.md"
