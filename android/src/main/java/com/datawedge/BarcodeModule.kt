@@ -200,7 +200,7 @@ class BarcodeModule(private val reactContext: ReactApplicationContext) : ReactCo
     @ReactMethod()
     fun read(config: ReadableMap) {
 
-        val typeArray = config.getArray("type")
+        val typeArray = config.getArray("types")
         var wantedDecoders = arrayOf("QR", "Code 128", "Code 39", "EAN-13", "UPC-A", "PDF417") // Default
 
         if (typeArray != null && typeArray.size() > 0) {
@@ -217,8 +217,7 @@ class BarcodeModule(private val reactContext: ReactApplicationContext) : ReactCo
             Log.d(LOG_TAG, "Using default decoders: ${wantedDecoders.joinToString(", ")}")
         }
 
-
-         // Main bundle properties
+        // Main bundle properties
         val profileConfig = Bundle().apply {
             putString("PROFILE_NAME", getAppName())
             putString("PROFILE_ENABLED", "true")
@@ -268,6 +267,8 @@ class BarcodeModule(private val reactContext: ReactApplicationContext) : ReactCo
         barcodeConfig.putBundle("PARAM_LIST", barcodeProps)
 
         profileConfig.putBundle("PLUGIN_CONFIG", barcodeConfig)
+
+        Log.d(LOG_TAG, "profileConfig: ${BundleJsonUtils.bundleToJsonString(profileConfig)}")
 
         val barcodeIntent = Intent().apply {        
             this.action = "com.symbol.datawedge.api.ACTION"

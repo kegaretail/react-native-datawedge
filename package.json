@@ -26,7 +26,7 @@
     "readme": "ERROR: No README data found!",
     "repository": {
       "type": "git",
-      "url": "git+ssh://git@github.com/kegaretail/react-native-datawedge.git"
+      "url": "git+ssh://git@github.com/kegaretail/react-native-kega-datawedge.git"
     },
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"

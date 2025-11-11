@@ -16,8 +16,8 @@ const BarcodeScanner = (() => {
             return eventEmitter.addListener('onBarcode', callback);
         },
 
-        read: ({ type =  null }) => {
-            BarcodeModule.read({ type });
+        read: ({ types =  null }) => {
+            BarcodeModule.read({ types });
         },
 
         cancelRead: () => {

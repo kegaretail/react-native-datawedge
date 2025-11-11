@@ -26,7 +26,10 @@ import com.datawedge.utils.DataWedgeLabelTypes
 
 class DataWedgeModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), LifecycleEventListener {
     override fun getName() = "DataWedgeModule"
-    
+
+    var hasReceiver: Boolean = false
+    var actionName: String? = null
+
     companion object {
         private const val LOG_TAG = "DataWedgeModule"
     }
@@ -64,7 +67,6 @@ class DataWedgeModule(private val reactContext: ReactApplicationContext) : React
     init {
         reactContext.addLifecycleEventListener(this)
         Log.v(LOG_TAG, "init")
-
     }
 
     override fun onHostPause() {
@@ -89,12 +91,28 @@ class DataWedgeModule(private val reactContext: ReactApplicationContext) : React
     override fun onHostResume() {
         Log.v(LOG_TAG, "Host Resume")
 
+        if (hasReceiver) {
+            val filter = IntentFilter()
+            filter.addAction("com.symbol.datawedge.api.RESULT_ACTION")
+            filter.addAction(actionName)
+            filter.addCategory("android.intent.category.DEFAULT")
+            reactContext.registerReceiver(broadcastReceiver, filter)
+        }
+
+
+    }
+
+    @ReactMethod
+    fun registerReceiver(action: String) {
+        actionName = action
+        hasReceiver = true
+        
         val filter = IntentFilter()
         filter.addAction("com.symbol.datawedge.api.RESULT_ACTION")
-        //filter.addAction("com.symbol.datawedge.data_scan")
+        filter.addAction(actionName)
         filter.addCategory("android.intent.category.DEFAULT")
-        reactContext.registerReceiver(broadcastReceiver, filter)
 
+        reactContext.registerReceiver(broadcastReceiver, filter)
     }
 
     @ReactMethod

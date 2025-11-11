@@ -24,7 +24,7 @@ object BundleJsonUtils {
             val json = JSONObject()
             for (key in bundle.keySet()) {
                 val value = bundle.get(key)
-                Log.d(LOG_TAG, "Converting key: $key, value type: ${value?.javaClass?.simpleName ?: "null"}, value: $value")
+   
                 when (value) {
                     is String -> json.put(key, value)
                     is Int -> json.put(key, value)
