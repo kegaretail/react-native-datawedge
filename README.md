@@ -15,7 +15,7 @@ yarn add react-native-kega-datawedge
 ### Basic Barcode Scanning
 
 ```javascript
-import { BarcodeModule } from 'react-native-datawedge';
+import { BarcodeModule } from 'react-native-kega-datawedge';
 
 // Start scanning with default decoders
 BarcodeModule.read({
