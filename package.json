@@ -9,32 +9,31 @@
     "license": "ISC",
     "main": "./src/index.js",
     "files": [
-      "src",
-      "README.md",
-      "BARCODE_TYPES.md"
+        "src",
+        "README.md",
+        "BARCODE_TYPES.md"
     ],
     "exports": {
-      ".": "./*",
-      "./package.json": "./package.json"
+        ".": "./*",
+        "./package.json": "./package.json"
     },
     "maintainers": [
-      {
-        "name": "timhonders",
-        "email": "tim.honders@kega.nl"
-      }
+        {
+            "name": "timhonders",
+            "email": "tim.honders@kega.nl"
+        }
     ],
     "readme": "ERROR: No README data found!",
     "repository": {
-      "type": "git",
-      "url": "git+ssh://git@github.com/kegaretail/react-native-kega-datawedge.git"
+        "type": "git",
+        "url": "git+ssh://git@github.com/kegaretail/react-native-kega-datawedge.git"
     },
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "peerDependencies": {
-      "react": "*",
-      "react-native": "*"
+        "react": "*",
+        "react-native": "*"
     }
-  }
-  
+}
