@@ -1,0 +1,36 @@
+{
+    "name": "react-native-datawedge",
+    "description": "datawedge",
+    "directories": {},
+    "dist": {},
+    "gitHead": "",
+    "homepage": "https://github.com/kegaretail",
+    "keywords": [],
+    "license": "ISC",
+    "main": "./src/index.js",
+    "exports": {
+      ".": "./*",
+      "./package.json": "./package.json"
+    },
+    "maintainers": [
+      {
+        "name": "timhonders",
+        "email": "tim.honders@kega.nl"
+      }
+    ],
+    "readme": "ERROR: No README data found!",
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/kegaretail/react-native-datawedge.git"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "version": "0.0.4",
+    "packageManager": "yarn@3.6.4",
+    "peerDependencies": {
+      "react": "*",
+      "react-native": "*"
+    }
+  }
+  
