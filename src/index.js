@@ -9,15 +9,6 @@ const BarcodeModule = NativeModules.BarcodeModule  ? NativeModules.BarcodeModule
     }
 );
 
-const DataWedgeModule = NativeModules.DataWedgeModule  ? NativeModules.DataWedgeModule : new Proxy(
-    {},
-    {
-      get() {
-        throw new Error('');
-      },
-    }
-);
-
 import BarcodeScanner from './BarcodeScanner';
 
-export { BarcodeScanner, BarcodeModule, DataWedgeModule };
+export { BarcodeScanner, BarcodeModule };

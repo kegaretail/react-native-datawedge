@@ -15,6 +15,6 @@ class DataWedgePackage : ReactPackage {
 
     override fun createNativeModules(
         reactContext: ReactApplicationContext
-    ): MutableList<NativeModule> = listOf(DataWedgeModule(reactContext), BarcodeModule(reactContext)).toMutableList()
+    ): MutableList<NativeModule> = listOf(BarcodeModule(reactContext)).toMutableList()
 
 }
