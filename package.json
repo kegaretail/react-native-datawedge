@@ -15,7 +15,8 @@
         "BARCODE_TYPES.md"
     ],
     "exports": {
-        ".": "./*",
+        ".": "./src/index.js",
+        "./*": "./src/*.js",
         "./package.json": "./package.json"
     },
     "maintainers": [
