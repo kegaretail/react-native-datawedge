@@ -18,6 +18,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.os.Build
 import android.util.Log
 import org.json.JSONException
 import com.datawedge.utils.BundleJsonUtils
@@ -66,9 +67,12 @@ class BarcodeModule(private val reactContext: ReactApplicationContext) : ReactCo
         filter.addAction("com.symbol.datawedge.api.RESULT_ACTION")
         filter.addAction("com.symbol.datawedge.data_scan")
         filter.addCategory("android.intent.category.DEFAULT")
-        reactContext.registerReceiver(broadcastReceiver, filter)
-
- 
+        
+        if (Build.VERSION.SDK_INT >= 34 && reactContext.applicationInfo.targetSdkVersion >= 34) {
+            reactContext.registerReceiver(broadcastReceiver, filter, Context.RECEIVER_EXPORTED)
+        } else {
+            reactContext.registerReceiver(broadcastReceiver, filter)
+        }
 
     }
 
@@ -201,7 +205,7 @@ class BarcodeModule(private val reactContext: ReactApplicationContext) : ReactCo
     fun read(config: ReadableMap) {
 
         val typeArray = config.getArray("types")
-        var wantedDecoders = arrayOf("QR", "Code 128", "Code 39", "EAN-13", "UPC-A", "PDF417") // Default
+        var wantedDecoders = arrayOf("QR", "Code 128", "Code 39", "EAN-13", "EAN-8", "UPC-A", "PDF417") // Default
 
         if (typeArray != null && typeArray.size() > 0) {
             val decoderList = mutableListOf<String>()
