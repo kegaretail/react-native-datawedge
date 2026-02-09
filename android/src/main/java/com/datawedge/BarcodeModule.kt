@@ -143,7 +143,18 @@ class BarcodeModule(private val reactContext: ReactApplicationContext) : ReactCo
 
         intentConfig.putBundle("PARAM_LIST", intentProps)
 
-        profileConfig.putBundle("PLUGIN_CONFIG", intentConfig)
+        val keystrokeConfig = Bundle().apply {
+            putString("PLUGIN_NAME", "KEYSTROKE")
+            putString("RESET_CONFIG", "true")
+        }
+
+        val keystrokeProps = Bundle().apply {
+            putString("keystroke_output_enabled", "false")
+        }
+
+        keystrokeConfig.putBundle("PARAM_LIST", keystrokeProps)
+
+        profileConfig.putParcelableArrayList("PLUGIN_CONFIG", arrayListOf(intentConfig, keystrokeConfig))
 
         // Create APP_LIST bundle to associate app with profile
         val appConfig = Bundle().apply {
